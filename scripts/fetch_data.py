@@ -1,9 +1,11 @@
 import subprocess
 from pathlib import Path
 
-root_path = Path(__file__).parent.parent
-documentation_path = root_path / Path('data/docs/en/docs')
-code_documentation_path = root_path / Path('data/docs_src')
+from rag_model_fastapi.paths import (
+    code_documentation_path,
+    documentation_path,
+    root_path,
+)
 
 if documentation_path.is_dir() and code_documentation_path.is_dir():
     print("The repository has already been cloned and fetched.")
