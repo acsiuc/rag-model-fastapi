@@ -10,6 +10,9 @@ from rag_model_fastapi.paths import (
 
 
 def resolve_code_markers(text):
+
+    """Replace {* path.py *} markers with the actual code from docs_src."""
+
     pattern = r'\{\*\s*(.+?\.py)(?:\s+hl\[.*?\])?\s*\*\}'
 
     def replace_one(match):
@@ -21,3 +24,10 @@ def resolve_code_markers(text):
         return  f"```python\n{code}\n```"
 
     return re.sub(pattern, replace_one, text)
+
+def strip_anchor_ids(text):
+
+    pattern = r'\{\s*#.+?\s*\}'
+
+    return re.sub(pattern, '', text)
+
