@@ -45,9 +45,15 @@ def load_file(path):
         file_without_note_blocks = strip_note_blocks(file_without_anchors)
         clean_file_with_code = resolve_code_markers(file_without_note_blocks)
 
-    return {path: clean_file_with_code}
+    return {'path': path, 'text': clean_file_with_code}
 
 
 
+def load_all_files(path):
+    list_of_paths_text = []
+    for file in path.rglob('*.md'):
+        path_text_dict = load_file(file)
+        list_of_paths_text.append(path_text_dict)
 
-    
+    return list_of_paths_text
+
