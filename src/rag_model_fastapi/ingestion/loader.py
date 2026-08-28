@@ -31,3 +31,8 @@ def strip_anchor_ids(text):
 
     return re.sub(pattern, '', text)
 
+def strip_note_blocks(text):
+
+    pattern = r'///[^\n]*\n(.*?)///'
+
+    return re.sub(pattern, r'\1', text, flags=re.DOTALL)
