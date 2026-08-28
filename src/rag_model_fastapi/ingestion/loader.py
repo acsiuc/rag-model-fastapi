@@ -36,3 +36,18 @@ def strip_note_blocks(text):
     pattern = r'///[^\n]*\n(.*?)///'
 
     return re.sub(pattern, r'\1', text, flags=re.DOTALL)
+
+def load_file(path):
+
+    with open(path, 'r') as f:
+        markdown_file = f.read()
+        file_without_anchors = strip_anchor_ids(markdown_file)
+        file_without_note_blocks = strip_note_blocks(file_without_anchors)
+        clean_file_with_code = resolve_code_markers(file_without_note_blocks)
+
+    return {path: clean_file_with_code}
+
+
+
+
+    
