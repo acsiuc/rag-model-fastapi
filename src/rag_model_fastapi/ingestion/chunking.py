@@ -1,4 +1,4 @@
-import re
+from nltk.tokenize import sent_tokenize
 
 class CodeBlockProtector:
 
@@ -23,6 +23,10 @@ def restore_placeholder_codeblocks(chunk: str, list_of_placeholders: dict):
 
 
     return chunk
+
+def sentence_splitting(text):
+
+    return sent_tokenize(text)
 
 
 
