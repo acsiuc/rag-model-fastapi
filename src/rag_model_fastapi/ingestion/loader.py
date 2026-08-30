@@ -1,5 +1,4 @@
 import re
-from pathlib import Path
 
 from rag_model_fastapi.paths import data_path
 
