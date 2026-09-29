@@ -1,4 +1,7 @@
 from nltk.tokenize import sent_tokenize
+import re
+from rag_model_fastapi.retrieval.model import model
+
 
 class CodeBlockProtector:
 
@@ -29,6 +32,18 @@ def sentence_splitting(text):
     return sent_tokenize(text)
 
 
+def chunk_text(text):
+
+    codeblock = CodeBlockProtector()
+    pattern = r'```.*?```'
+
+    text = re.sub(pattern, codeblock.protect, text, flags = re.DOTALL)
+    text = sentence_splitting(text)
+    chunk = ''
+
+    while len(model.tokenizer(chunk)) <= 300:
+
+        chunk+=
 
 
 
