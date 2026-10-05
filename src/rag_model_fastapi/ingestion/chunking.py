@@ -2,7 +2,7 @@ import re
 
 from nltk.tokenize import sent_tokenize
 
-from rag_model_fastapi.retrieval.model import model
+from rag_model_fastapi.embedding import model
 
 
 class CodeBlockProtector:
