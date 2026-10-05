@@ -70,7 +70,7 @@ def chunk_text(text):
                     else:
                         overlap += current_sentences[y]
                 else:
-                    break
+                   break
             chunk = overlap + ' ' + x
             current_chunk_length = len(model.tokenizer.encode(restore_placeholder_codeblocks(chunk, codeblock.codeblocks)))
             current_sentences = [x]
