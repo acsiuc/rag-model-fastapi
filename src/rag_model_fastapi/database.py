@@ -14,3 +14,17 @@ def get_connection():
     register_vector(connection)
 
     return connection
+
+def populate_database(connection, file_path, embedding, chunks):
+
+    if path_exists(connection, file_path):
+        pass
+    else:
+        connection.execute('INSERT')
+       
+
+def path_exists(connection, file_path):
+
+    return connection.execute('SELECT 1 FROM chunks WHERE file_path = %s LIMIT 1', (file_path,)).fetchone() is not None
+     
+
