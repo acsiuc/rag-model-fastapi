@@ -15,12 +15,11 @@ def get_connection():
 
     return connection
 
-def populate_database(connection, file_path, embedding, chunks):
+def populate_database(connection, file_path, embeddings, chunks):
 
-    if path_exists(connection, file_path):
-        pass
-    else:
-        connection.execute('INSERT')
+    for chunk_index, chunk in enumerate(chunks):
+        connection.execute('INSERT INTO chunks(file_path, chunk_index, content, embedding) '
+        'VALUES(%s, %s, %s, %s)', (file_path, chunk_index, chunk, embeddings[chunk_index]))
        
 
 def path_exists(connection, file_path):
