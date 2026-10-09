@@ -19,4 +19,12 @@ def question_asked(user: Ask):
 
     connection.close()
 
-    return generate(question, chunks)
+    answer = generate(question, chunks)
+    file_paths = []
+
+    for content, file_path, distance in chunks:
+        if file_path  not in file_paths:
+            file_paths.append(file_path)
+            
+
+    return {'answer': answer, 'file_paths': file_paths}
