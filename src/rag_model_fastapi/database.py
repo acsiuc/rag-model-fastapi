@@ -27,7 +27,7 @@ def path_exists(connection, file_path):
     return connection.execute('SELECT 1 FROM chunks WHERE file_path = %s LIMIT 1', (file_path,)).fetchone() is not None
      
 
-def closest_chunks(connection, question_embedding, number_of_chunks):
+def closest_chunks(connection, question_embedding, number_of_chunks = 5):
 
     return connection.execute('SELECT content, file_path, embedding <=> %s as distance ' \
     'FROM chunks ' \
