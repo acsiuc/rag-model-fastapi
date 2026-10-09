@@ -8,6 +8,26 @@
     {"question": "How can I send an email after returning the response, without making the user wait?", "eval_file_path": "tutorial/background-tasks.md"},
     {"question": "How do I let users upload a file?", "eval_file_path": "tutorial/request-files.md"},
     {"question": "How do I write automated tests for my endpoints?", "eval_file_path": "tutorial/testing.md"},
-    {"question": "How do I split my app into multiple files?", "eval_file_path": "tutorial/bigger-applications.md"}
+    {"question": "How do I split my app into multiple files?", "eval_file_path": "tutorial/bigger-applications.md"},
+    {"question": "How do I run some code on every request, like logging how long it took?", "eval_file_path": "tutorial/middleware.md"},
+    {"question": "How do I put my FastAPI app in a Docker container?", "eval_file_path": "deployment/docker.md"},
+    {"question": "How can the server push live messages to the browser over a persistent connection?", "eval_file_path": "advanced/websockets.md"},
+    {"question": "How do I serve images and CSS files from a folder?", "eval_file_path": "tutorial/static-files.md"},
+    {"question": "How do I make sure the password field is never included in what my endpoint returns?", "eval_file_path": "tutorial/response-model.md"},
+    {"question": "How do I log users in with JWT tokens?", "eval_file_path": "tutorial/security/oauth2-jwt.md"},
+    {"question": "How do I save and load data from a SQL database?", "eval_file_path": "tutorial/sql-databases.md"},
+    {"question": "How do I read a username and password sent from an HTML form?", "eval_file_path": "tutorial/request-forms.md"},
+    {"question": "How do I read a cookie the browser sent?", "eval_file_path": "tutorial/cookie-params.md"},
+    {"question": "How do I read the User-Agent header from a request?", "eval_file_path": "tutorial/header-params.md"},
+    {"question": "How do I share common logic like pagination parameters between several endpoints?", "eval_file_path": "tutorial/dependencies/index.md"},
+    {"question": "How do I make sure an id in the URL is a number greater than zero?", "eval_file_path": "tutorial/path-params-numeric-validations.md"},
+    {"question": "How do I limit a search text parameter to a maximum of 50 characters?", "eval_file_path": "tutorial/query-params-str-validations.md"},
+    {"question": "How do I return HTML or plain text instead of JSON?", "eval_file_path": "advanced/custom-response.md"},
+    {"question": "How do I load a machine learning model once when the app starts and clean up when it shuts down?", "eval_file_path": "advanced/events.md"},
+    {"question": "How do I return status 201 when something is created?", "eval_file_path": "tutorial/response-status-code.md"},
+    {"question": "How do I change the title and description shown on the docs page?", "eval_file_path": "tutorial/metadata.md"},
+    {"question": "How do I read configuration like an API key from environment variables?", "eval_file_path": "advanced/settings.md"},
+    {"question": "How do I convert an object with datetime fields into something JSON-compatible?", "eval_file_path": "tutorial/encoder.md"},
+    {"question": "How do I accept a JSON body that contains a list of other objects inside it?", "eval_file_path": "tutorial/body-nested-models.md"}
 
 ]
