@@ -1,0 +1,13 @@
+[
+    {"question": "How do I create my first route that returns hello world?", "eval_file_path": "tutorial/first-steps.md"},
+    {"question": "How do I get a value like a user id from the URL?", "eval_file_path": "tutorial/path-params.md"},
+    {"question": "How do I read optional filters like ?skip=0&limit=10?", "eval_file_path": "tutorial/query-params.md"},
+    {"question": "How do I receive JSON data sent in a POST request?", "eval_file_path": "tutorial/body.md"},
+    {"question": "My frontend on another port gets blocked when calling my API, how do I allow it?", "eval_file_path": "tutorial/cors.md"},
+    {"question": "How do I return a 404 error when an item doesn't exist?", "eval_file_path": "tutorial/handling-errors.md"},
+    {"question": "How can I send an email after returning the response, without making the user wait?", "eval_file_path": "tutorial/background-tasks.md"},
+    {"question": "How do I let users upload a file?", "eval_file_path": "tutorial/request-files.md"},
+    {"question": "How do I write automated tests for my endpoints?", "eval_file_path": "tutorial/testing.md"},
+    {"question": "How do I split my app into multiple files?", "eval_file_path": "tutorial/bigger-applications.md"}
+
+]
