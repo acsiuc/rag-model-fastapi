@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from psycopg import OperationalError
 from pydantic import BaseModel
 
 from rag_model_fastapi.database import get_connection
@@ -28,3 +29,17 @@ def question_asked(user: Ask):
             
 
     return {'answer': answer, 'file_paths': file_paths}
+
+@app.get('/health')
+def get_health():
+
+    try :
+        connection = get_connection()
+        connection.close()
+        return {'status': 'OK'}
+    except OperationalError:
+        raise HTTPException(status_code = 503, detail = "Service Unavailable")
+
+    
+    
+
