@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from psycopg import OperationalError
 from pydantic import BaseModel
 
@@ -7,6 +8,18 @@ from rag_model_fastapi.generation.generation import generate
 from rag_model_fastapi.retrieval.retrieval import retrieve
 
 app = FastAPI()
+
+origins = [
+    'http://localhost:5500'
+           ]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Ask(BaseModel):
     question: str
