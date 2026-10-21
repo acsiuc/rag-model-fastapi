@@ -14,5 +14,7 @@ button.addEventListener("click", async function () {
         body: JSON.stringify({question: ask.value}),
         headers: {"Content-Type": "application/json"},  
     })
+    const data = await response.json()
+    answer.textContent = data.answer
 })
 
