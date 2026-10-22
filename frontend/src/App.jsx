@@ -1,26 +1,32 @@
 import "./App.css";
+import { useState } from "react";
 
-const address = "http://localhost:8000/ask"
-
+const address = "http://localhost:8000/ask";
 
 function App() {
+  const [question, setQuestion] = useState("");
+  const [result, setResult] = useState('');
 
-  async function answer(){
+  function handleTyping(event) {
+    setQuestion(event.target.value);
+  }
+  async function answer() {
     const response = await fetch(address, {
-      method: 'POST',
-      body: JSON.stringify({question: "What is CORS?"}),
-      headers: {'Content-Type': 'application/json'}
-    })
-    const data = await response.json()
-    console.log(data)
+      method: "POST",
+      body: JSON.stringify({ question }),
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await response.json();
+    setResult(data.answer)
+    console.log(data);
   }
 
   return (
     <>
       <h1>fastapi.search</h1>
-      <input></input>
-      <button onClick = {answer} >Send</button>
-      <div></div>
+      <input value={question} onChange={handleTyping}></input>
+      <button onClick={answer}>Send</button>
+      <div>{result}</div>
       <ul></ul>
     </>
   );
