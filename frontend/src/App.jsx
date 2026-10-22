@@ -1,4 +1,3 @@
-import "./App.css";
 import { useState } from "react";
 
 const address = "http://localhost:8000/ask";
@@ -33,7 +32,7 @@ function App() {
 
   return (
     <>
-      <h1>fastapi.search</h1>
+      <h1 className="text-4xl">fastapi.search</h1>
       <input value={question} onChange={handleTyping}></input>
       <button onClick={answer} disabled={thinking}>
         Send
