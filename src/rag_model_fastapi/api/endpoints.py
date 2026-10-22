@@ -10,8 +10,8 @@ from rag_model_fastapi.retrieval.retrieval import retrieve
 app = FastAPI()
 
 origins = [
-    'http://localhost:5500'
-           ]
+    'http://localhost:5173'
+    ]
 
 app.add_middleware(
     CORSMiddleware,
