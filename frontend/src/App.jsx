@@ -12,7 +12,9 @@ function App() {
   function handleTyping(event) {
     setQuestion(event.target.value);
   }
-  async function answer() {
+
+  async function answer(event) {
+    event.preventDefault()
     setThinking(true);
     setPaths([]);
     try {
@@ -34,20 +36,19 @@ function App() {
   return (
     <div className="max-w-2xl mx-auto flex flex-col gap-4 p-4">
       <h1 className="text-4xl text-center">fastapi.search</h1>
-      <div className="flex gap-2">
+      <form onSubmit={answer} className="flex gap-2">
         <input
           value={question}
           onChange={handleTyping}
           className="border rounded-lg p-2 flex-1"
         ></input>
         <button
-          onClick={answer}
           disabled={thinking}
           className="disabled:opacity-50 bg-green-600 text-white px-4 rounded-lg"
         >
           Send
         </button>
-      </div>
+      </form>
       <div className="prose">
         <Markdown>{thinking ? "thinking..." : result}</Markdown>
       </div>
