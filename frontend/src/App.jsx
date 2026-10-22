@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Markdown from "react-markdown";
 
 const address = "http://localhost:8000/ask";
 
@@ -31,19 +32,36 @@ function App() {
   }
 
   return (
-    <>
-      <h1 className="text-4xl">fastapi.search</h1>
-      <input value={question} onChange={handleTyping}></input>
-      <button onClick={answer} disabled={thinking}>
-        Send
-      </button>
-      <div>{thinking ? "thinking..." : result}</div>
-      <ul>
-        {paths.map((path) => (
-          <li key={path}>{path}</li>
-        ))}
-      </ul>
-    </>
+    <div className="max-w-2xl mx-auto flex flex-col gap-4 p-4">
+      <h1 className="text-4xl text-center">fastapi.search</h1>
+      <div className="flex gap-2">
+        <input
+          value={question}
+          onChange={handleTyping}
+          className="border rounded-lg p-2 flex-1"
+        ></input>
+        <button
+          onClick={answer}
+          disabled={thinking}
+          className="disabled:opacity-50 bg-green-600 text-white px-4 rounded-lg"
+        >
+          Send
+        </button>
+      </div>
+      <div className="prose">
+        <Markdown>{thinking ? "thinking..." : result}</Markdown>
+      </div>
+      {paths.length > 0 && (
+        <div>
+          <h2 className="font-semibold">Sources:</h2>
+          <ul className="marker:text-green-600 list-disc pl-5">
+            {paths.map((path) => (
+              <li key={path}>{path}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }
 
