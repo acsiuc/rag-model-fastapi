@@ -6,6 +6,7 @@ const address = "http://localhost:8000/ask";
 function App() {
   const [question, setQuestion] = useState("");
   const [result, setResult] = useState('');
+  const [paths, setPaths] = useState([]);
 
   function handleTyping(event) {
     setQuestion(event.target.value);
@@ -18,6 +19,7 @@ function App() {
     });
     const data = await response.json();
     setResult(data.answer)
+    setPaths(data.file_paths)
     console.log(data);
   }
 
@@ -27,7 +29,9 @@ function App() {
       <input value={question} onChange={handleTyping}></input>
       <button onClick={answer}>Send</button>
       <div>{result}</div>
-      <ul></ul>
+      <ul>
+        {paths.map((path) => <li key={path}>{path}</li>)}
+      </ul>
     </>
   );
 }
