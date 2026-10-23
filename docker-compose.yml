@@ -19,7 +19,11 @@ services:
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
     ports:
       - '127.0.0.1:8000:8000'
-      
+  rag-frontend:
+    build: ./frontend
+    container_name: rag-frontend
+    ports:
+      - '127.0.0.1:8080:80'
 volumes: 
   rag-pgdata:
 
