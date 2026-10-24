@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Markdown from "react-markdown";
 
-const address = "http://localhost:8000/ask";
+const address = "/ask";
 
 function App() {
   const [question, setQuestion] = useState("");
