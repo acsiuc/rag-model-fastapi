@@ -23,7 +23,7 @@ services:
     build: ./frontend
     container_name: rag-frontend
     ports:
-      - '127.0.0.1:8080:80'
+      - '${FRONTEND_PORT:-127.0.0.1:8080}:80'
 volumes: 
   rag-pgdata:
 
