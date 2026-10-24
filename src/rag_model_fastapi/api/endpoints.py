@@ -1,5 +1,4 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
 from psycopg import OperationalError
 from pydantic import BaseModel
 
