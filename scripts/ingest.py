@@ -1,9 +1,10 @@
-from rag_model_fastapi.ingestion.loader import load_all_files
-from rag_model_fastapi.ingestion.chunking import chunk_text
-from rag_model_fastapi.database import populate_database, path_exists, get_connection
+
+from rag_model_fastapi.database import get_connection, path_exists, populate_database
 from rag_model_fastapi.embedding import embed
+from rag_model_fastapi.ingestion.chunking import chunk_text
+from rag_model_fastapi.ingestion.loader import load_all_files
 from rag_model_fastapi.paths import documentation_path
-from pathlib import Path
+
 
 def ingest():
     connection = get_connection()
@@ -19,7 +20,7 @@ def ingest():
                 embeddings = embed(list_of_chunks)
                 populate_database(connection, path, embeddings, list_of_chunks)
                 connection.commit()
-        except Exception as e:
+        except Exception as e: # noqa: BLE001
             connection.rollback()
             print(f"Path {path} failed: {e}")
 
