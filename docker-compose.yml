@@ -20,6 +20,8 @@ services:
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
     ports:
       - '127.0.0.1:8000:8000'
+    volumes:
+      - rag-hf-cache:/root/.cache/huggingface
     restart: ${RESTART_BEHAVIOUR:-no}  
   rag-frontend:
     build: ./frontend
@@ -33,4 +35,5 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt:ro
 volumes: 
   rag-pgdata:
+  rag-hf-cache:
 
